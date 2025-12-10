@@ -4,34 +4,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autism</title>
     <style>
-        body{
-            display: flex;
-            align-content: center;
-            justify-content: center;
-            width: 100%;
-        }
-        h1{
-            text-align: center;
-            display: block;
-        }
-        .header{
-            background-color: black;
-        }
-        .description{
-            background-color: black;
-            display: inline-block;
-        }
-        .description p{
-            display: inline-block;
-        }
+            
+
+            /* Whole nav bar */
+.navbar {
+  width: 100%;
+  background: #ffffff;
+  padding: 20px 30px;
+  border-bottom: 1px solid #eee;
+  position: fixed; /* stick to top */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Layout */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.nav-logo img {
+  height: 32px;
+}
+
+/* Center links */
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-size: 16px;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+.nav-links a:hover {
+  opacity: 0.6;
+}
+
+/* Right action buttons */
+.nav-actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-actions .login {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-actions .cta {
+  padding: 10px 20px;
+  background: #f12711;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */     /* purple gradient like Current */
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+.nav-actions .cta:hover {
+  background: #6d3dff;
+}
+
+/* Mobile layout */
+@media (max-width: 850px) {
+  .nav-links {
+    display: none; /* hide center links on small screens */
+  }
+}
+
         </style>
 </head>
 <body>
-    <div class="header" >
-        <h1>AUTISM</h1>
+<header class="navbar">
+  <div class="nav-container">
+
+    <!-- Left: Logo -->
+    <div class="nav-logo">
+      <img src="your-logo.svg" alt="Logo">
     </div>
-    <div class="description">
-        <p>This is an awesome Autism project</p>
+
+    <!-- Center: Nav Links -->
+    <nav class="nav-links">
+      <a href="#">Features</a>
+      <a href="#">Plans</a>
+      <a href="#">Company</a>
+      <a href="#">Support</a>
+    </nav>
+
+    <!-- Right: Buttons -->
+    <div class="nav-actions">
+      <a href="#" class="login">Login</a>
+      <a href="#" class="cta">Get Started</a>
     </div>
+
+  </div>
+</header>
+
 </body>
 </html>
