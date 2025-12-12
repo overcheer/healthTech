@@ -1,3 +1,398 @@
-<html>
-    <h1> TEST</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAIDL - Autism Education & Awareness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #667eea;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        #about {
+            background: #f8f9fa;
+        }
+
+        #about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        #about-content img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .about-text h2 {
+            color: #764ba2;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        #resources {
+            background: white;
+        }
+
+        .resource-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .resource-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+
+        .resource-item h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        #statistics {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            #about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">RAIDL</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Autism</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Welcome to RAIDL</h1>
+        <p>Resources, Awareness, Information, Development & Learning about Autism</p>
+        <p style="font-size: 1.1rem; margin-top: 1rem;">Empowering communities with knowledge, understanding, and support</p>
+        <a href="#about" class="cta-button">Learn More</a>
+        <a href="#resources" class="cta-button">Explore Resources</a>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div id="about-content">
+                <div class="about-text">
+                    <h2>Understanding Autism</h2>
+                    <p><strong>Autism Spectrum Disorder (ASD)</strong> is a developmental condition that affects how people communicate, interact socially, and process information. It is a spectrum, meaning autism presents differently in each individual.</p>
+                    <p>Autism is not a disease or disorder to be "fixed." Rather, autistic individuals have unique strengths, perspectives, and ways of experiencing the world. Understanding autism helps us build a more inclusive society.</p>
+                    <p>Early identification and support can help individuals develop skills and strategies to thrive in their personal and professional lives. Many successful individuals are autistic and make valuable contributions to society.</p>
+                </div>
+                <div class="cards">
+                    <div class="card">
+                        <h3>🧠 Key Traits</h3>
+                        <p>Communication differences, sensory sensitivities, repetitive behaviors, and unique social processing are common autism traits.</p>
+                    </div>
+                    <div class="card">
+                        <h3>📊 Prevalence</h3>
+                        <p>Autism affects approximately 1 in 36 children, with increasing recognition in adults and diverse populations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Core Characteristics of Autism</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Communication</h3>
+                    <p>Autistic individuals may communicate differently. Some are non-speaking, while others may be very verbal. Communication differences are a feature, not a flaw.</p>
+                </div>
+                <div class="card">
+                    <h3>Social Interaction</h3>
+                    <p>Social processing may differ. Autistic people often have genuine interest in connecting but may approach relationships differently than neurotypical individuals.</p>
+                </div>
+                <div class="card">
+                    <h3>Sensory Processing</h3>
+                    <p>Many autistic people experience heightened sensory sensitivity to sounds, lights, textures, or tastes. Accommodations and understanding help create inclusive environments.</p>
+                </div>
+                <div class="card">
+                    <h3>Interests & Strengths</h3>
+                    <p>Focused interests and deep knowledge in specific areas are common. Many autistic individuals excel in pattern recognition, attention to detail, and specialized skills.</p>
+                </div>
+                <div class="card">
+                    <h3>Routine & Predictability</h3>
+                    <p>Many autistic people thrive with structure and predictability. Transitions and unexpected changes can be challenging but are manageable with support.</p>
+                </div>
+                <div class="card">
+                    <h3>Neurodiversity Perspective</h3>
+                    <p>Autism is a different neurotype, not a deficit. The neurodiversity movement celebrates autism as part of human diversity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="statistics" style="padding: 4rem 2rem;">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">By the Numbers</h2>
+            <div class="stats-container">
+                <div>
+                    <div class="stat">1 in 36</div>
+                    <div class="stat-label">Children are diagnosed with autism</div>
+                </div>
+                <div>
+                    <div class="stat">4:1</div>
+                    <div class="stat-label">Ratio of males to females (estimated)</div>
+                </div>
+                <div>
+                    <div class="stat">80%+</div>
+                    <div class="stat-label">Autistic adults are underemployed</div>
+                </div>
+                <div>
+                    <div class="stat">3x</div>
+                    <div class="stat-label">Higher risk of mental health challenges</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resources">
+        <div class="container">
+            <h2 class="section-title">Resources & Support</h2>
+            <div class="resource-list">
+                <div class="resource-item">
+                    <h4>🎓 Educational Materials</h4>
+                    <p>Access comprehensive guides, articles, and videos about autism spectrum disorder, diagnosis, and support strategies.</p>
+                </div>
+                <div class="resource-item">
+                    <h4>👥 Support Communities</h4>
+                    <p>Connect with autistic individuals and families through online communities, support groups, and forums.</p>
+                </div>
+                <div class="resource-item">
+                    <h4>🏥 Diagnosis & Assessment</h4>
+                    <p>Learn about diagnostic processes, finding specialists, and evaluation resources for children and adults.</p>
+                </div>
+                <div class="resource-item">
+                    <h4>💼 Employment Support</h4>
+                    <p>Discover workplace accommodations, job coaching, and career development resources for autistic professionals.</p>
+                </div>
+                <div class="resource-item">
+                    <h4>🎯 Therapies & Interventions</h4>
+                    <p>Explore evidence-based approaches including occupational therapy, speech therapy, and behavioral support.</p>
+                </div>
+                <div class="resource-item">
+                    <h4>👨‍👩‍👧‍👦 Family Support</h4>
+                    <p>Resources for parents, siblings, and families navigating autism diagnosis and providing support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #f8f9fa; text-align: center;">
+        <div class="container">
+            <h2 class="section-title">Get Involved</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #555;">Join us in building a more inclusive and understanding world for autistic individuals</p>
+            <a href="#" class="cta-button" style="color: #667eea;">Learn About Our Mission</a>
+            <a href="#" class="cta-button" style="color: #667eea;">Donate to Support Our Cause</a>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h3 style="margin-bottom: 1rem;">RAIDL - Autism Education & Awareness</h3>
+            <p style="margin-bottom: 1rem;">Empowering communities with knowledge, understanding, and support for autism.</p>
+            <p>Email: <strong>info@raidl.org</strong></p>
+            <p style="margin-top: 2rem; opacity: 0.8;">&copy; 2025 RAIDL. All rights reserved. | Dedicated to autism awareness and education</p>
+        </div>
+    </footer>
+</body>
 </html>
